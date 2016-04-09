@@ -19,6 +19,7 @@ export const APP_MODULE: Module = new Module(APP_MODULE_NAME, [
   'pascalprecht.translate',
   'ui.bootstrap',
   'restangular',
+  'angular-storage',
 
   COMMON_MODULE.name,
   CORE_MODULE.name,
