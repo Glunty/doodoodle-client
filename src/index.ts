@@ -1,3 +1,4 @@
+
 import 'angular';
 import 'angular-animate';
 import 'angular-cookies';
@@ -12,11 +13,12 @@ import 'node_modules/angular-translate-interpolation-messageformat/angular-trans
 // Fix
 import 'imports?MessageFormat=node_modules/messageformat/messageformat.js!node_modules/messageformat/locale/fr.js';
 import 'node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js';
-import 'angular-ui-router';
 import 'node_modules/angular-ui-select/select.js';
 import 'jquery';
 import 'lodash';
 import 'moment';
+import 'restangular';
+import 'node_modules/@angular/router/angular1/angular_1_router.js';
 
 import {APP_MODULE} from './app/app.module';
 

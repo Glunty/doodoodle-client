@@ -1,21 +1,22 @@
 {
   "dependencies": {
-    "moment": "github:typings/typed-moment#a4075cd50e63efbedd850f654594f293ab81a385"
+    "moment": "registry:npm/moment#2.10.5+20160211003958"
   },
   "devDependencies": {},
   "ambientDependencies": {
-    "angular": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular.d.ts#3bebbe1baee04846cc46ed7249e8117e4cd7c7ff",
-    "angular-animate": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular-animate.d.ts#3c26c6546fab58b39d04d6ae40bacfa9a25dd196",
-    "angular-cookies": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular-cookies.d.ts#ccd32787a2aed5f876693b2c8d7100d1daba4782",
-    "angular-sanitize": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular-sanitize.d.ts#32194eaa6f9fd91364a8a18bc5591055e61f4bc5",
-    "angular-translate": "github:DefinitelyTyped/DefinitelyTyped/angular-translate/angular-translate.d.ts#19850bf86c876e0c2544842114878ece4664941a",
-    "angular-ui-bootstrap": "github:DefinitelyTyped/DefinitelyTyped/angular-ui-bootstrap/angular-ui-bootstrap.d.ts#f91384300695af40e9764ad907bcd24ea743cd91",
-    "angular-ui-router": "github:DefinitelyTyped/DefinitelyTyped/angular-ui-router/angular-ui-router.d.ts#655f8c1bf3c71b0e1ba415b36309604f79326ac8",
+    "angular": "registry:dt/angular#1.5.0+20160328125810",
+    "angular-animate": "registry:dt/angular-animate#1.5.0+20160407085121",
+    "angular-component-router": "registry:dt/angular-component-router#1.5.0+20160328094519",
+    "angular-cookies": "registry:dt/angular-cookies#1.4.0+20160317120654",
+    "angular-sanitize": "registry:dt/angular-sanitize#1.3.0+20160317120654",
+    "angular-translate": "registry:dt/angular-translate#2.4.0+20160318095457",
+    "angular-ui-bootstrap": "registry:dt/angular-ui-bootstrap#0.13.3+20160406111533",
     "immutable": "github:facebook/immutable-js/dist/immutable.d.ts#3.7.6",
-    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#cf2a968f0edd7d30773f7d23fe3708fa029d5ab7",
-    "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#df712b17fa4737fdb3eb52118b1465cd3be81a1d",
-    "require": "github:DefinitelyTyped/DefinitelyTyped/requirejs/require.d.ts#853544cb7068af64bdb10ef1ae0c54d3aa3a80f6",
-    "rx-lite": "github:DefinitelyTyped/DefinitelyTyped/rx/rx-lite.d.ts#f06966b9ff3858763d50ea53c477082eefcec20e",
-    "rx.binding-lite": "github:DefinitelyTyped/DefinitelyTyped/rx/rx.binding-lite.d.ts#07e3d201c037f8f24a0d60379502c7ecc833e46e"
+    "jquery": "registry:dt/jquery#1.10.0+20160316155526",
+    "lodash": "registry:dt/lodash#3.10.0+20160330154726",
+    "require": "registry:dt/require#2.1.20+20160316155526",
+    "restangular": "registry:dt/restangular#1.4.0+20160317120654",
+    "rx-lite": "registry:dt/rx-lite#0.0.0+20160316171810",
+    "rx.binding-lite": "registry:dt/rx.binding-lite#0.0.0+20160316171810"
   }
 }

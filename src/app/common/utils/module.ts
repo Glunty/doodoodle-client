@@ -10,6 +10,11 @@ export class Module {
     return this.ngModule.name;
   }
 
+  public component(name: string, component: ng.IComponentOptions): Module {
+    this.ngModule.component(name, component);
+    return this;
+  }
+
   public directive(name: string, directive: ng.IDirectiveFactory): Module {
     this.ngModule.directive(name, directive);
     return this;
@@ -37,6 +42,11 @@ export class Module {
 
   public run(run: Function): Module {
     this.ngModule.run(run);
+    return this;
+  }
+
+  public value(name: string, value: any): Module {
+    this.ngModule.value(name, value);
     return this;
   }
 }
