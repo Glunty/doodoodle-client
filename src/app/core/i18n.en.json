@@ -1,0 +1,12 @@
+{
+  "global": {
+    "app.name": "App",
+    "locale": {
+      "fr": "Français",
+      "en": "English"
+    }
+  },
+  "footer": {
+    "poweredby": "Powered By"
+  }
+}
