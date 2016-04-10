@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 m-b">
+      <form name="$ctrl.form" class="form-inline">
+        <div class="form-group">
+          <label for="circle" class="sr-only">Nom du cercle</label>
+          <input type="text" class="form-control" id="circle" placeholder="Entrez le nom du cercle..." required
+                 name="circle" ng-model="$ctrl.circleToAdd" required>
+        </div>
+        <button class="btn btn-primary" ng-disabled="$ctrl.form.$invalid"
+                ng-click="$ctrl.addCircle()"><i class="fa fa-plus"></i> Ajouter
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3" ng-repeat="circle in $ctrl.circles">
+      <ddl-circle-panel circle="circle" on-remove="$ctrl.refresh()"></ddl-circle-panel>
+    </div>
+  </div>
+</div>

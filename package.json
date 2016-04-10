@@ -35,6 +35,7 @@
     "lodash": "^4.0.1",
     "messageformat": "~0.1.6",
     "moment": "^2.11.1",
+    "ng-focus-if": "^1.0.5",
     "restangular": "^1.5.2",
     "rx-lite": "^4.0.7"
   },

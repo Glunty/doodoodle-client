@@ -3,6 +3,15 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Doodoodle</a>
     </div>
+    <div class="collapse navbar-collapse" ng-if="$ctrl.isAuth">
+      <ul class="nav navbar-nav">
+        <li><a router-active="active" ng-link="['Core']"><i class="fa fa-home"></i> Accueil</a></li>
+        <li><a router-active="active" ng-link="['Core', 'Circles']"><i class="fa fa-users"></i> Cercles</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href ng-click="$ctrl.logOut()">Se déconnecter</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
 <ng-outlet></ng-outlet>

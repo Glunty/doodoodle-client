@@ -1,0 +1,14 @@
+<form name="$ctrl.form" class="modal-content" ng-submit="$ctrl.addUser()">
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" name="name" class="form-control" id="email" placeholder="Entrez un email..." focus-if
+             ng-model="$ctrl.email" required ng-model-options="{ debounce: 500 }" ng-change="$ctrl.checkValidity()">
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary" ng-disabled="$ctrl.form.$invalid">Ajouter
+    </button>
+    <button type="button" class="btn btn-default" ng-click="$dismiss()">Annuler</button>
+  </div>
+</form>

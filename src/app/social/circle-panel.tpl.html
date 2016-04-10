@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span ng-bind="$ctrl.circle.name"></span>
+    <a href class="pull-right" ng-click="$ctrl.remove()"><i class="fa fa-trash"></i></a>
+  </div>
+  <div class="panel-body">
+    <ul class="nav nav-pills m-b">
+      <li role="presentation" ng-class="{active: $ctrl.isFriends}"><a href ng-click="$ctrl.showFriends()">Amis</a></li>
+      <li role="presentation" ng-class="{active: $ctrl.isActivities}"><a href ng-click="$ctrl.showActivities()">Activités</a>
+      </li>
+    </ul>
+    <div>
+      <table class="table table-striped" ng-if="$ctrl.isFriends">
+        <tr ng-hide="$ctrl.circle.members.length">
+          <td>Aucun ami dans ce cercle</td>
+        </tr>
+        <tr ng-repeat="member in $ctrl.circle.members">
+          <td class="vcenter" ng-bind="member.email"></td>
+          <td class="text-right">
+            <button class="btn btn-link btn-sm" ng-click="$ctrl.removeUser(member)"><i class="fa fa-minus"></i></button>
+          </td>
+        </tr>
+      </table>
+      <table class="table table-striped" ng-if="$ctrl.isActivities">
+        <tr ng-hide="$ctrl.circle.activities.length">
+          <td>Aucune activité dans ce cercle</td>
+        </tr>
+        <tr ng-repeat="activitiy in $ctrl.circle.activities">
+          <td ng-bind="activitiy"></td>
+        </tr>
+      </table>
+      <button class="btn btn-default" ddl-circle-edit-modal="$ctrl.state"><i class="fa fa-user-plus"></i> Ajouter
+      </button>
+      <button class="btn btn-default"><i class="fa fa-child"></i> Ajouter</button>
+      <button class="btn btn-primary pull-right"><i class="fa fa-calendar-plus-o"></i> Proposer</button>
+    </div>
+  </div>
+</div>

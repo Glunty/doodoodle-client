@@ -11,24 +11,30 @@ export class AuthManager {
   }
 
   /* @ngInject */
-  public static run($http: IHttpService, ddlAuthState: AuthState, store: IStoreService) {
-    ddlAuthState.observeAuth(Rx.Observer.create((auth: string) => {
-      if (auth) {
-        $http.defaults.headers['Authorization'] = auth;
-        store.set('ddl.authorization.key', auth);
+  public static run($http: IHttpService, Restangular: restangular.IService, ddlAuthState: AuthState, store: IStoreService) {
+    ddlAuthState.observeAuth(Rx.Observer.create((header: string) => {
+      if (header) {
+        $http.defaults.headers['Authorization'] = header;
+        Restangular.setDefaultHeaders({Authorization: header});
+        store.set('ddl.authorization.key', header);
       }
     }));
 
-    let auth = store.get('ddl.authorization.key');
+    let header = store.get('ddl.authorization.key');
     if (store.get('ddl.authorization.key')) {
-      ddlAuthState.auth = auth;
+      ddlAuthState.header = header;
     }
   }
 
   public logIn = (email: string, password: string) => {
     this.ddlApi.auth(email, password).then((response) => {
-      this.ddlAuthState.auth = response.token;
+      this.ddlAuthState.header = response.token;
       this.$rootRouter.navigate(['Core']);
     });
+  };
+
+  public logOut = () => {
+    this.ddlAuthState.header = null;
+    this.$rootRouter.navigate(['Login']);
   };
 }
