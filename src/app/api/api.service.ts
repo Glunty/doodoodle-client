@@ -6,7 +6,7 @@ import IServiceProvider = angular.IServiceProvider;
 
 export class ApiProvider implements IServiceProvider {
 
-  public baseUrl: string = '';
+  public baseUrl: string = 'http://localhost:9001';
 
   /* @ngInject */
   public $get($q: IQService, $http: IHttpService) {
