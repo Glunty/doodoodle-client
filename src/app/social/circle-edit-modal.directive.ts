@@ -15,15 +15,6 @@ export class CircleEditModalDirective implements ng.IDirective {
   public constructor(private $uibModal: IModalService, private $timeout: ITimeoutService) {
   }
 
-  /* @ngInject */
-  public static directive($uibModal: IModalService, $timeout: ITimeoutService) {
-    return new CircleEditModalDirective($uibModal, $timeout);
-  }
-
-  public static factory() {
-    return this.directive;
-  }
-
   public link = (scope: any, elem: ng.IAugmentedJQuery) => {
     $(elem).click(() => this.openCircleEditModal(scope.state));
   };
@@ -39,6 +30,15 @@ export class CircleEditModalDirective implements ng.IDirective {
       }
     });
   };
+
+  /* @ngInject */
+  public static directive($uibModal: IModalService, $timeout: ITimeoutService) {
+    return new CircleEditModalDirective($uibModal, $timeout);
+  }
+
+  public static factory() {
+    return this.directive;
+  }
 }
 
 class CircleEditModalController {

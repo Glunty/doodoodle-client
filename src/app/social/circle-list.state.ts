@@ -1,29 +1,15 @@
-
 import BehaviorSubject = Rx.BehaviorSubject;
 import Observer = Rx.Observer;
 import IDisposable = Rx.IDisposable;
 import Immutable = require('immutable');
 import List = Immutable.List;
 import {ICircle} from '../api/social/circle';
+import {State} from '../common/state/state';
 
-export class CircleListState {
-
-  private _circles: BehaviorSubject<List<ICircle>> = new BehaviorSubject<List<ICircle>>(List<ICircle>());
-
-  public observe(observer: Observer<List<ICircle>>): IDisposable {
-    return this._circles.subscribe(observer);
-  }
+export class CircleListState extends State<List<ICircle>> {
 
   public addCircle(circle: ICircle) {
-    this.circles = this.circles.push(circle);
-  }
-
-  public set circles(circles: List<ICircle>) {
-    this._circles.onNext(circles);
-  }
-
-  public get circles() {
-    return this._circles.getValue();
+    this.state = this.state.push(circle);
   }
 
 }

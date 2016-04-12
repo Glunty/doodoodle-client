@@ -22,6 +22,7 @@ import 'restangular';
 import 'node_modules/@angular/router/angular1/angular_1_router.js';
 import 'node_modules/angular-storage/dist/angular-storage.js';
 import 'node_modules/ng-focus-if/focusIf.js';
+import 'core-js';
 
 import {APP_MODULE} from './app/app.module';
 

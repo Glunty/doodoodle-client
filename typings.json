@@ -12,6 +12,7 @@
     "angular-storage": "registry:dt/angular-storage#0.0.11+20160317120654",
     "angular-translate": "registry:dt/angular-translate#2.4.0+20160318095457",
     "angular-ui-bootstrap": "registry:dt/angular-ui-bootstrap#0.13.3+20160406111533",
+    "core-js": "registry:dt/core-js#0.9.7+20160215162030",
     "immutable": "github:facebook/immutable-js/dist/immutable.d.ts#3.7.6",
     "jquery": "registry:dt/jquery#1.10.0+20160316155526",
     "lodash": "registry:dt/lodash#3.10.0+20160330154726",

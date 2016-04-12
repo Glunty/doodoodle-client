@@ -5,11 +5,12 @@ export class CoreComponent {
   public controller = CoreController;
   public $routeConfig = [
     {path: '/', name: 'Home', component: 'ddlHomeView', useAsDefault: true},
-    {path: '/circles', name: 'Circles', component: 'ddlCirclesView'}];
+    {path: '/circles', name: 'Circles', component: 'ddlCirclesView'},
+    {path: '/**', redirectTo: ['Home']}];
 
   /* @ngInject */
   public $canActivate = ($rootRouter: any, ddlAuthState: AuthState) => {
-    if (!ddlAuthState.isAuth) {
+    if(!ddlAuthState.isAuth) {
       $rootRouter.navigate(['Login']);
       return false;
     }

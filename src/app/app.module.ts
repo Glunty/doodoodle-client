@@ -1,5 +1,5 @@
 import {CONFIG} from '../config';
-import {Module} from './common/utils/module';
+import {Module} from './common/module/module';
 
 export const APP_MODULE_NAME = CONFIG.APP_MODULE_NAME;
 

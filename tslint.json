@@ -6,7 +6,6 @@
     "indent": "spaces",
     "member-ordering": [
       true,
-      "static-before-instance",
       "variables-before-functions"
     ],
     "no-arg": true,
@@ -39,7 +38,6 @@
     "variable-name": false,
     "whitespace": [
       true,
-      "check-branch",
       "check-decl",
       "check-operator",
       "check-separator",

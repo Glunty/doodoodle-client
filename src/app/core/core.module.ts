@@ -1,5 +1,5 @@
-import {ChildModule} from '../common/utils/child-module';
-import {Module} from '../common/utils/module';
+import {ChildModule} from '../common/module/child-module';
+import {Module} from '../common/module/module';
 import {APP_MODULE_NAME} from '../app.module';
 import {COMMON_MODULE} from '../common/common.module';
 import {CoreComponent} from './core.component';

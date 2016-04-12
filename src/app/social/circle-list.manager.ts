@@ -6,13 +6,8 @@ import List = Immutable.List;
 
 export class CircleListManager {
 
-  public constructor(private ddlApi: ApiService, private _state: CircleListState) {
+  public constructor(private ddlApi: ApiService, private _circles: CircleListState) {
 
-  }
-
-  /* @ngInject */
-  public static factory(ddlApi: ApiService) {
-    return (state: CircleListState) => new CircleListManager(ddlApi, state);
   }
 
   public addCircle = (name: string) => {
@@ -20,8 +15,13 @@ export class CircleListManager {
   };
 
   public loadCircles = () => {
-    this.ddlApi.getCircleList().then((circles: ICircle[]) => this._state.circles = List<ICircle>(circles));
+    this.ddlApi.getCircleList().then((circles: ICircle[]) => this._circles.state = List<ICircle>(circles));
   };
+
+  /* @ngInject */
+  public static factory(ddlApi: ApiService) {
+    return (state: CircleListState) => new CircleListManager(ddlApi, state);
+  }
 }
 
 export type CircleListManagerFactory = (state: CircleListState) => CircleListManager;

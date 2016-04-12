@@ -10,22 +10,6 @@ export class AuthManager {
 
   }
 
-  /* @ngInject */
-  public static run($http: IHttpService, Restangular: restangular.IService, ddlAuthState: AuthState, store: IStoreService) {
-    ddlAuthState.observeAuth(Rx.Observer.create((header: string) => {
-      if (header) {
-        $http.defaults.headers['Authorization'] = header;
-        Restangular.setDefaultHeaders({Authorization: header});
-        store.set('ddl.authorization.key', header);
-      }
-    }));
-
-    let header = store.get('ddl.authorization.key');
-    if (store.get('ddl.authorization.key')) {
-      ddlAuthState.header = header;
-    }
-  }
-
   public logIn = (email: string, password: string) => {
     this.ddlApi.auth(email, password).then((response) => {
       this.ddlAuthState.header = response.token;
@@ -37,4 +21,17 @@ export class AuthManager {
     this.ddlAuthState.header = null;
     this.$rootRouter.navigate(['Login']);
   };
+
+  /* @ngInject */
+  public static run($http: IHttpService, Restangular: restangular.IService, ddlAuthState: AuthState, store: IStoreService) {
+    let header = store.get('ddl.authorization.key');
+    if (store.get('ddl.authorization.key')) {
+      ddlAuthState.header = header;
+    }
+    ddlAuthState.observeAuth(Rx.Observer.create((header: string) => {
+        $http.defaults.headers['Authorization'] = header;
+        Restangular.setDefaultHeaders({Authorization: header});
+        store.set('ddl.authorization.key', header);
+    }));
+  }
 }
