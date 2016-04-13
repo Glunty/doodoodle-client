@@ -1,4 +1,4 @@
-import {AuthManager} from './auth.manager';
+import {AuthManager} from './../api/auth.manager.ts';
 
 export class AuthPanelComponent implements ng.IComponentOptions {
   public template = require('./auth-panel.tpl.html');

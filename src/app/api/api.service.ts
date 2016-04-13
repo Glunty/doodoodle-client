@@ -7,40 +7,50 @@ import {ICircle} from './social/circle';
 import ICollectionPromise = restangular.ICollectionPromise;
 import {IUser} from './social/user';
 
+const AUTH_PATH = 'auth';
+const USER_PATH = 'user';
+const GROUP_PATH = 'group';
+
 export class ApiProvider implements IServiceProvider {
 
   public baseUrl: string = 'http://localhost:9001';
 
   /* @ngInject */
-  public $get($q: IQService, $http: IHttpService, Restangular: restangular.IService) {
-    Restangular.setBaseUrl(this.baseUrl);
-    return new ApiService(this.baseUrl, $q, $http, Restangular);
+  public $get($q: IQService, Restangular: restangular.IService) {
+    let rest = Restangular.withConfig((RestangularConfigurer: restangular.IService) => {
+      RestangularConfigurer.setBaseUrl(this.baseUrl);
+    });
+    return new ApiService($q, rest);
   }
 }
 
 export class ApiService {
 
-  public constructor(private baseUrl: string, private $q: IQService, private $http: IHttpService, private rest: restangular.IService) {
+  public constructor(private $q: IQService, public rest: restangular.IService) {
   }
 
   public auth(email: string, password: string): IPromise<IAuthResponse> {
-    return this.$http.post(this.baseUrl + '/auth', {email, password}).then((response) => response.data, this.$q.reject);
+    return this.rest.all(AUTH_PATH).post({email, password});
+  }
+
+  public getUser(): IPromise<IUser> {
+    return this.rest.one(USER_PATH, null).get();
   }
 
   public getCircleList(): ICollectionPromise<ICircle> {
-    return this.rest.all('group').getList();
+    return this.rest.all(GROUP_PATH).getList();
   }
 
   public getCircle(groupId: string): IPromise<ICircle> {
-    return this.rest.one('group', groupId).get();
+    return this.rest.one(GROUP_PATH, groupId).get();
   }
 
   public removeCircle(groupId: string): IPromise<ICircle> {
-    return this.rest.one('group', groupId).remove();
+    return this.rest.one(GROUP_PATH, groupId).remove();
   }
 
   public addCircle(name: string): IPromise<ICircle> {
-    return this.rest.all('group').post({
+    return this.rest.all(GROUP_PATH).post({
       name, members: []
     });
   }

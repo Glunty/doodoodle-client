@@ -1,4 +1,4 @@
-import {AuthState} from '../auth/auth.state';
+import {AuthState} from '../api/auth.state.ts';
 
 export class CoreComponent {
   public template = require('./core.tpl.html');
@@ -10,7 +10,7 @@ export class CoreComponent {
 
   /* @ngInject */
   public $canActivate = ($rootRouter: any, ddlAuthState: AuthState) => {
-    if(!ddlAuthState.isAuth) {
+    if(!ddlAuthState.state.isLoggedIn) {
       $rootRouter.navigate(['Login']);
       return false;
     }

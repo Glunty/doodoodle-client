@@ -4,6 +4,7 @@ import {ICircle} from '../api/social/circle';
 import {IUser} from '../api/social/user';
 import {StateObserver} from '../common/state/state-observer';
 import {CircleState} from './circle.state';
+import {AuthState} from '../api/auth.state';
 
 export class CirclePanelComponent implements IComponentOptions {
   public bindings: any = {
@@ -16,6 +17,7 @@ export class CirclePanelComponent implements IComponentOptions {
 
 class CirclePanelController {
   public circle: ICircle;
+  public members: IUser[];
   public isFriends: boolean = true;
   public isActivities: boolean = false;
 
@@ -25,10 +27,13 @@ class CirclePanelController {
   private _observer: StateObserver<ICircle>;
 
   /* @ngInject */
-  public constructor(ddlCircleManagerFactory: CircleManagerFactory) {
+  public constructor(ddlAuthState: AuthState, ddlCircleManagerFactory: CircleManagerFactory) {
     this._observer = new StateObserver<ICircle>(new CircleState(this._inCircle));
     this._manager = ddlCircleManagerFactory(this._observer.state);
-    this._observer.onChange((circle) => this.circle = circle);
+    this._observer.onChange((circle) => {
+      this.circle = circle;
+      this.members = circle.members.filter((member) => !ddlAuthState.state.isUser(member.email));
+    });
   }
 
   public remove() {

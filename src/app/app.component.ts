@@ -1,5 +1,5 @@
-import {AuthState} from './auth/auth.state';
-import {AuthManager} from './auth/auth.manager';
+import {AuthState, AuthInfo} from './api/auth.state.ts';
+import {AuthManager} from './api/auth.manager.ts';
 
 export class AppComponent {
   public template = require('./app.tpl.html');
@@ -15,8 +15,8 @@ class AppController {
 
   /* @ngInject */
   public constructor(private ddlAuthState: AuthState, private ddlAuthManager: AuthManager) {
-    ddlAuthState.observeAuth(Rx.Observer.create((auth: string) => {
-      this.isAuth = !!auth;
+    ddlAuthState.observe(Rx.Observer.create((info: AuthInfo) => {
+      this.isAuth = info.isLoggedIn;
     }));
   }
 

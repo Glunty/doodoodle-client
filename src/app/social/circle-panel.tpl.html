@@ -14,7 +14,7 @@
         <tr ng-hide="$ctrl.circle.members.length">
           <td>Aucun ami dans ce cercle</td>
         </tr>
-        <tr ng-repeat="member in $ctrl.circle.members">
+        <tr ng-repeat="member in $ctrl.members track by member.id">
           <td class="vcenter" ng-bind="member.email"></td>
           <td class="text-right">
             <button class="btn btn-link btn-sm" ng-click="$ctrl.removeUser(member)"><i class="fa fa-minus"></i></button>
