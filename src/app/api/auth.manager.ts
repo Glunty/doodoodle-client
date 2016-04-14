@@ -8,7 +8,8 @@ const USER_STORAGE_ID = 'ddl.authorization.user';
 export class AuthManager {
 
   /* @ngInject */
-  public constructor(private $rootRouter: any, private ddlApi: ApiService, private ddlAuthState: AuthState) {
+  public constructor(private $rootRouter: any, private ddlApi: ApiService, private ddlAuthState: AuthState,
+                     private store: IStoreService) {
 
   }
 
@@ -19,6 +20,10 @@ export class AuthManager {
     });
   };
 
+  public register = (email: string, password: string) => {
+    this.ddlApi.addUser(email, password).then(() => this.logIn(email, password));
+  };
+
   public getUser = () => {
     return this.ddlApi.getUser().then((response) => {
       this.ddlAuthState.user = response;
@@ -27,6 +32,9 @@ export class AuthManager {
 
   public logOut = () => {
     this.ddlAuthState.header = null;
+    this.ddlAuthState.user = null;
+    this.store.remove(HEADER_STORAGE_ID);
+    this.store.remove(USER_STORAGE_ID);
     this.$rootRouter.navigate(['Login']);
   };
 
@@ -38,7 +46,7 @@ export class AuthManager {
 
     state.observe(Rx.Observer.create((info: AuthInfo) => {
       if(info.header !== null && info.user === null) {
-        ddlApi.rest.setDefaultHeaders({Authorization: header});
+        ddlApi.rest.setDefaultHeaders({Authorization: info.header});
       }
       if(info.isLoggedIn) {
         store.set(HEADER_STORAGE_ID, info.header);

@@ -12,7 +12,7 @@ export class CircleEditModalDirective implements ng.IDirective {
     state: '<ddlCircleEditModal'
   };
 
-  public constructor(private $uibModal: IModalService, private $timeout: ITimeoutService) {
+  public constructor(private $uibModal: IModalService) {
   }
 
   public link = (scope: any, elem: ng.IAugmentedJQuery) => {
@@ -33,7 +33,7 @@ export class CircleEditModalDirective implements ng.IDirective {
 
   /* @ngInject */
   public static directive($uibModal: IModalService, $timeout: ITimeoutService) {
-    return new CircleEditModalDirective($uibModal, $timeout);
+    return new CircleEditModalDirective($uibModal);
   }
 
   public static factory() {
@@ -59,10 +59,10 @@ class CircleEditModalController {
 
   public checkValidity() {
     this.form.$setValidity('email', true);
-    if (this.form.$valid) {
+    if(this.form.$valid) {
       this.form.$setValidity('email', false);
       this.ddlApi.findUser({email: this.email}).then((result: any) => {
-        if (result) {
+        if(result) {
           this.user = result;
           this.form.$setValidity('email', true);
         } else {

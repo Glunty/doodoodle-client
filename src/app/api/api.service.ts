@@ -37,6 +37,10 @@ export class ApiService {
     return this.rest.one(USER_PATH, null).get();
   }
 
+  public addUser(email: string, password: string): IPromise<IUser> {
+    return this.rest.all(USER_PATH).post({email, password});
+  }
+
   public getCircleList(): ICollectionPromise<ICircle> {
     return this.rest.all(GROUP_PATH).getList();
   }
