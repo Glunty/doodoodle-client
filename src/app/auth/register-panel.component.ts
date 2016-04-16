@@ -1,4 +1,5 @@
 import {AuthManager} from './../api/auth.manager.ts';
+import {IUser} from '../api/social/user';
 
 export class RegisterPanelComponent implements ng.IComponentOptions {
   public template = require('./register-panel.tpl.html');
@@ -6,8 +7,7 @@ export class RegisterPanelComponent implements ng.IComponentOptions {
 }
 
 class RegisterPanelController {
-  private email: string;
-  private password: string;
+  private user: IUser = {};
 
   /* @ngInject */
   public constructor(private ddlAuthManager: AuthManager) {
@@ -19,6 +19,6 @@ class RegisterPanelController {
   }
 
   public register = () => {
-    this.ddlAuthManager.register(this.email, this.password);
+    this.ddlAuthManager.register(this.user);
   };
 }

@@ -3,12 +3,27 @@
   <div class="panel-body">
     <form name="$ctrl.form" ng-submit="$ctrl.register()">
       <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required ng-model="$ctrl.email">
+        <label for="email">Email*</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required
+               ng-model="$ctrl.user.email">
       </div>
       <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required ng-model="$ctrl.password">
+        <label for="new-password">Mot de passe*</label>
+        <input type="password" class="form-control" id="new-password" name="password" placeholder="Mot de passe" required
+               ng-model="$ctrl.user.password">
+      </div>
+      <div class="form-group">
+        <label for="given-name">Nom*</label>
+        <div class="row">
+          <div class="col-xs-5">
+            <input type="text" class="form-control" id="given-name" name="fname" placeholder="Prénom" required
+                   ng-model="$ctrl.user.firstName" required>
+          </div>
+          <div class="col-xs-7">
+            <input type="text" class="form-control" id="family-name" name="lname" placeholder="Nom de famille"
+                   required ng-model="$ctrl.user.lastName" required>
+          </div>
+        </div>
       </div>
       <button type="submit" class="btn btn-primary" ng-disabled="$ctrl.form.$invalid">S'inscrire</button>
       <a class="btn btn-default pull-right" href="#/login">Retour</a>

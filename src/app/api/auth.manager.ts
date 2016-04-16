@@ -1,6 +1,7 @@
 import {ApiService} from './api.service.ts';
 import {AuthState, AuthInfo} from './auth.state.ts';
 import IStoreService = angular.a0.storage.IStoreService;
+import {IUser} from './social/user';
 
 const HEADER_STORAGE_ID = 'ddl.authorization.key';
 const USER_STORAGE_ID = 'ddl.authorization.user';
@@ -20,8 +21,8 @@ export class AuthManager {
     });
   };
 
-  public register = (email: string, password: string) => {
-    this.ddlApi.addUser(email, password).then(() => this.logIn(email, password));
+  public register = (user: IUser) => {
+    this.ddlApi.addUser(user).then(() => this.logIn(user.email, user.password));
   };
 
   public getUser = () => {
