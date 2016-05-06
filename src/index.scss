@@ -1,6 +1,7 @@
 @import "styles/variables";
 
 @import "~angular-ui-select/select.css";
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
 
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
@@ -9,3 +10,4 @@ $fa-font-path: "~font-awesome/fonts/";
 
 @import "styles/utils";
 @import "styles/table";
+@import "styles/navbar";
