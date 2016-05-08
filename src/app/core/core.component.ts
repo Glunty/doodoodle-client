@@ -1,4 +1,5 @@
-import {AuthState} from '../api/auth.state.ts';
+import {AuthState, AuthInfo} from '../api/auth.state.ts';
+import {AuthManager} from '../api/auth.manager';
 
 export class CoreComponent {
   public template = require('./core.tpl.html');
@@ -19,4 +20,17 @@ export class CoreComponent {
 }
 
 class CoreController {
+
+  public isAuth = false;
+
+  /* @ngInject */
+  public constructor(private ddlAuthState: AuthState, private ddlAuthManager: AuthManager) {
+    ddlAuthState.observe(Rx.Observer.create((info: AuthInfo) => {
+      this.isAuth = info.isLoggedIn;
+    }));
+  }
+
+  public logOut = () => {
+    this.ddlAuthManager.logOut();
+  };
 }

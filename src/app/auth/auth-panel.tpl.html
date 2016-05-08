@@ -1,17 +1,16 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Connexion</div>
+<form name="$ctrl.form" ng-submit="$ctrl.logIn()" class="panel panel-default">
   <div class="panel-body">
-    <form name="$ctrl.form" ng-submit="$ctrl.logIn()">
+    <div>
       <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required ng-model="$ctrl.email">
+        <label class="sr-only" for="email">Email</label>
+        <input type="email" class="form-control input-underline input-lg" id="email" name="email" placeholder="Email" required ng-model="$ctrl.email">
       </div>
       <div class="form-group">
-        <label for="current-password">Mot de passe</label>
-        <input type="password" class="form-control" id="current-password" name="password" placeholder="Mot de passe" required ng-model="$ctrl.password">
+        <label class="sr-only" for="current-password">Mot de passe</label>
+        <input type="password" class="form-control input-underline input-lg" id="current-password" name="password" placeholder="Mot de passe" required ng-model="$ctrl.password">
       </div>
-      <button type="submit" class="btn btn-primary" ng-disabled="$ctrl.form.$invalid">Se connecter</button>
-      <a class="btn btn-default pull-right" href="#/register">S'inscrire</a>
-    </form>
+    </div>
   </div>
-</div>
+  <button type="submit" class="btn btn-lg btn-block btn-primary" ng-disabled="$ctrl.form.$invalid">Se connecter</button>
+  <a class="btn btn-link btn-block" href="#/register">S'inscrire</a>
+</form>

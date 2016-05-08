@@ -1,0 +1,16 @@
+//
+// Forms
+// --------------------------------------------------
+
+.form-control {
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+  @include box-shadow(none);
+  @include form-control-focus($brand-primary);
+}
+
+.input-borderless {
+  border: none;
+}

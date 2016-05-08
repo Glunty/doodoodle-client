@@ -14,10 +14,6 @@ class RegisterPanelController {
 
   }
 
-  public $onInit() {
-    console.log('Hello2');
-  }
-
   public register = () => {
     this.ddlAuthManager.register(this.user);
   };

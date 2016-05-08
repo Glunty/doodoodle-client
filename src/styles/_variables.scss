@@ -1,9 +1,30 @@
-
+$brand-primary: #FF6363;
+$brand-secondary: #FFE481;
+$brand-ternary: #FFDA54;
 $brand-font-family: 'Pacifico', cursive;
 
-$body-bg: #FFFAE6;
+$body-bg: $brand-secondary;
+
+$headings-font-family: 'Montserrat', sans-serif;
 
 $powered-by-height: 100px;
 $padding-base-vertical: 6px;
-$panel-body-padding:          $padding-base-vertical*2 !default;
-$panel-heading-padding:       $padding-base-vertical*2 15px !default;
+
+$btn-border-radius-base: 0;
+$btn-border-radius-large: 0;
+$btn-border-radius-small: 0;
+$btn-primary-border: $brand-primary;
+
+$input-border-radius-large: 0;
+
+$panel-body-padding: $padding-base-vertical*2 !default;
+$panel-heading-font-family: $headings-font-family;
+$panel-heading-padding: $padding-base-vertical*2 15px !default;
+$panel-default-border: none;
+
+$navbar-default-bg: transparent;
+$navbar-default-border: transparent;
+$navbar-default-brand-color: #000;
+$navbar-default-link-color: #000;
+$navbar-default-link-hover-color: $brand-primary;
+$navbar-default-link-active-color: $brand-primary;

@@ -1,0 +1,22 @@
+//
+// Panels
+// --------------------------------------------------
+
+// Base class
+.panel {
+  border: none;
+  border-radius: 0;
+  @include box-shadow(0 5px 8px rgba(0, 0, 0, .1));
+}
+
+.panel-flat {
+  @include box-shadow(none);
+}
+
+.panel-heading {
+  font-family: $panel-heading-font-family;
+}
+
+.panel-ternary {
+  background-color: $brand-ternary;
+}

@@ -1,10 +1,10 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12 m-b">
+  <div class="row panel panel-flat panel-ternary">
+    <div class="col-xs-12 panel-body">
       <form name="$ctrl.form" class="form-inline">
         <div class="form-group">
           <label for="circle" class="sr-only">Nom du cercle</label>
-          <input type="text" class="form-control" id="circle" placeholder="Entrez le nom du cercle..." required
+          <input type="text" class="form-control input-borderless" id="circle" placeholder="Entrez le nom du cercle..." required
                  name="circle" ng-model="$ctrl.circleToAdd" required>
         </div>
         <button class="btn btn-primary" ng-disabled="$ctrl.form.$invalid"
