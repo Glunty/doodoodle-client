@@ -1,11 +1,26 @@
-import {ChildModule} from '../common/module/child-module';
-import {Module} from '../common/module/module';
-import {APP_MODULE_NAME} from '../app.module';
-import {COMMON_MODULE} from '../common/common.module';
-import {CoreComponent} from './core.component';
+import {CommonModule} from '@angular/common';
+import {NgModule, Optional, SkipSelf} from '@angular/core';
+import {UserService} from './auth/user.service';
+import {UserState} from './auth/user.state';
+import {AuthGuard} from './auth/auth.guard';
+import {LoginGuard} from './auth/login.guard';
 
-export const CORE_MODULE: Module = new ChildModule(APP_MODULE_NAME, 'core', [
-  COMMON_MODULE.name
-]);
+@NgModule({
+  declarations: [],
+  imports: [
+    CommonModule
+  ],
+  exports: [],
+  providers: [
+    UserService, UserState, AuthGuard, LoginGuard
+  ]
+})
+export class CoreModule {
 
-CORE_MODULE.component('ddlCore', new CoreComponent());
+  public constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
+    if (parentModule) {
+      throw new Error(
+        'CoreModule is already loaded. Import it in the AppModule only');
+    }
+  }
+}

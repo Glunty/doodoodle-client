@@ -1,11 +1,22 @@
-export class AppComponent {
-  public template = require('./app.tpl.html');
-  public controller = AppController;
-  public $routeConfig = [
-    {path: '/login', name: 'Login', component: 'ddlLoginView', useAsDefault: true},
-    {path: '/register', name: 'Register', component: 'ddlRegisterView'},
-    {path: '/...', name: 'Core', component: 'ddlCore'}];
-}
+import { Component } from '@angular/core';
+import {UserState} from './core/auth/user.state';
+import {UserInfo} from './core/auth/user-info.model';
 
-class AppController {
+@Component({
+  selector: 'ddl-root',
+  template: require('./app.component.html')
+})
+export class AppComponent {
+
+  public isLoggedIn;
+
+  public constructor(private user: UserState) {
+
+  }
+
+  public ngOnInit() {
+    this.user.observe((info: UserInfo) => {
+      this.isLoggedIn = info.isLoggedIn;
+    })
+  }
 }

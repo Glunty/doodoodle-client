@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/styles/variables";
+
+//@import "~angular-ui-select/select.css";
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+$fa-font-path: "~font-awesome/fonts/";
+@import "~font-awesome/scss/font-awesome";
+
+@import "assets/styles/mixins/forms";
+@import "assets/styles/mixins/buttons";
+
+@import "assets/styles/utils";
+@import "assets/styles/table";
+@import "assets/styles/navbar";
+@import "assets/styles/type";
+@import "assets/styles/panels";
+@import "assets/styles/buttons";
+@import "assets/styles/forms";

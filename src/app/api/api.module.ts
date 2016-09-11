@@ -1,15 +1,23 @@
-import {Module} from '../common/module/module';
-import {APP_MODULE_NAME} from '../app.module';
-import {ChildModule} from '../common/module/child-module';
-import {ApiProvider} from './api.service';
-import {AuthManager} from './auth.manager';
-import {AuthState} from './auth.state';
+import {HttpModule} from '@angular/http';
+import {NgModule, Optional, SkipSelf} from '@angular/core';
+import {ApiService} from './api.service';
+import {ExtendedHttp} from '../shared/http/extended-http.service';
+import {ApiUrl} from './api.url';
 
-export const API_MODULE: Module = new ChildModule(APP_MODULE_NAME, 'api', []);
+@NgModule({
+  imports: [
+    HttpModule
+  ],
+  providers: [
+    ApiService, ApiUrl
+  ]
+})
+export class ApiModule {
 
-API_MODULE.provider('ddlApi', ApiProvider);
-
-API_MODULE.run(AuthManager.run);
-
-API_MODULE.service('ddlAuthManager', AuthManager);
-API_MODULE.service('ddlAuthState', AuthState);
+  public constructor(@Optional() @SkipSelf() parentModule: ApiModule) {
+    if (parentModule) {
+      throw new Error(
+        'ApiModule is already loaded. Import it in the AppModule only');
+    }
+  }
+}

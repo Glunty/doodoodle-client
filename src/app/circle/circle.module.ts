@@ -1,16 +1,16 @@
-import {HomeViewComponent} from './home-view.component';
+import {CircleRootComponent} from './circle-root.component';
 import {SharedModule} from '../shared/shared.module';
-import {routing} from './home.routing';
+import {routing} from './circle.routing';
 import {NgModule} from '@angular/core';
 
 @NgModule({
   declarations: [
-    HomeViewComponent
+    CircleRootComponent
   ],
   imports: [
     SharedModule,
     routing
   ]
 })
-export class HomeModule {
+export class CircleModule {
 }

@@ -1,73 +1,67 @@
-import IHttpService = angular.IHttpService;
-import IPromise = Rx.IPromise;
-import {IAuthResponse} from './auth/auth-response';
-import IQService = angular.IQService;
-import IServiceProvider = angular.IServiceProvider;
-import {ICircle} from './social/circle';
-import ICollectionPromise = restangular.ICollectionPromise;
-import {IUser} from './social/user';
+import {ICircle} from './social/circle.i';
+import {IUser} from './social/user.i';
+import {Injectable} from '@angular/core';
+import {ApiUrl} from './api.url';
+import {IAuthResponse} from './auth/auth-response.i';
+import {Http, Headers} from '@angular/http';
+import {ExtendedHttp} from '../shared/http/extended-http.service';
 
-const AUTH_PATH = 'auth';
-const USER_PATH = 'user';
-const GROUP_PATH = 'group';
-
-export class ApiProvider implements IServiceProvider {
-
-  public baseUrl: string = 'http://localhost:9001';
-
-  /* @ngInject */
-  public $get($q: IQService, Restangular: restangular.IService) {
-    let rest = Restangular.withConfig((RestangularConfigurer: restangular.IService) => {
-      RestangularConfigurer.setBaseUrl(this.baseUrl);
-    });
-    return new ApiService($q, rest);
-  }
-}
-
+@Injectable()
 export class ApiService {
 
-  public constructor(private $q: IQService, public rest: restangular.IService) {
+  private http: ExtendedHttp;
+
+  public constructor(http: Http, private url: ApiUrl) {
+    this.http = new ExtendedHttp(http);
   }
 
-  public auth(email: string, password: string): IPromise<IAuthResponse> {
-    return this.rest.all(AUTH_PATH).post({email, password});
+  public set authorization(token: String) {
+    this.http.default.headers = new Headers({ 'Authorization': token });
   }
 
-  public getUser(): IPromise<IUser> {
-    return this.rest.one(USER_PATH, null).get();
+  public auth(email: string, password: string) {
+    return this.http.post<IAuthResponse>(this.url.auth(), {email, password});
   }
 
-  public addUser(user: IUser): IPromise<IUser> {
-    return this.rest.all(USER_PATH).post(user);
+  public getUser(id: string) {
+    return this.http.get<IUser>(this.url.user(id));
   }
 
-  public getCircleList(): ICollectionPromise<ICircle> {
-    return this.rest.all(GROUP_PATH).getList();
+  public getMe() {
+    return this.http.get<IUser>(this.url.users());
   }
 
-  public getCircle(groupId: string): IPromise<ICircle> {
-    return this.rest.one(GROUP_PATH, groupId).get();
+  public addUser(user: IUser) {
+    return this.http.post<IUser>(this.url.users(), user);
   }
 
-  public removeCircle(groupId: string): IPromise<ICircle> {
-    return this.rest.one(GROUP_PATH, groupId).remove();
+  public findUser(user: IUser) {
+    return this.http.post(this.url.userFind(), user).map((users: IUser[]) => users.length ? users[0] : false);
   }
 
-  public addCircle(name: string): IPromise<ICircle> {
-    return this.rest.all(GROUP_PATH).post({
+  public getCircles() {
+    return this.http.get<ICircle[]>(this.url.groups());
+  }
+
+  public getCircle(id: string) {
+    return this.http.get<ICircle>(this.url.group(id));
+  }
+
+  public removeCircle(id: string) {
+    return this.http.delete<ICircle>(this.url.group(id));
+  }
+
+  public addCircle(name: string) {
+    return this.http.post<ICircle>(this.url.groups(), {
       name, members: []
     });
   }
 
-  public addUserToCircle(groupId: string, user: IUser): IPromise<any> {
-    return this.rest.one('group', groupId).all('addUser').post(user);
+  public addUserToCircle(id: string, user: IUser) {
+    return this.http.post(this.url.groupAddUser(id), user);
   }
 
-  public removeUserToCircle(groupId: string, user: IUser): IPromise<any> {
-    return this.rest.one('group', groupId).all('removeUser').post(user);
-  }
-
-  public findUser(user: IUser): IPromise<IUser> {
-    return this.rest.all('user/find').post(user).then((users: IUser[]) => users.length ? users[0] : false);
+  public removeUserToCircle(id: string, user: IUser) {
+    return this.http.post(this.url.groupRemoveUser(id), user);
   }
 }

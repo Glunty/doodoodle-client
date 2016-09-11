@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 
 @Component({
-  template: require('./home-view.tpl.html')
+  template: require('./circle-root.tpl.html')
 })
-export class HomeViewComponent {
+export class CircleRootComponent {
 
   public constructor() {
   }

@@ -1,35 +1,29 @@
-import {CONFIG} from '../config';
-import {Module} from './common/module/module';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-export const APP_MODULE_NAME = CONFIG.APP_MODULE_NAME;
+import { AppComponent } from './app.component';
+import {LoginModule} from './login/login.module';
+import {CoreModule} from './core/core.module';
+import {ApiModule} from './api/api.module';
+import {HomeModule} from './home/home.module';
+import {routing} from './app.routing';
+import {CircleModule} from './circle/circle.module';
+import {MenuComponent} from './menu/menu.component';
 
-import {COMMON_MODULE} from './common/common.module';
-import {CORE_MODULE} from './core/core.module';
-import {API_MODULE} from './api/api.module';
-import {AUTH_MODULE} from './auth/auth.module';
-import {HOME_MODULE} from './home/home.module';
-import {AppComponent} from './app.component';
-import {SOCIAL_MODULE} from './social/social.module';
-
-export const APP_MODULE: Module = new Module(APP_MODULE_NAME, [
-  'ngAnimate',
-  'ngCookies',
-  'ngMessages',
-  'ngSanitize',
-  'ngComponentRouter',
-  'pascalprecht.translate',
-  'ui.bootstrap',
-  'restangular',
-  'angular-storage',
-  'focus-if',
-
-  COMMON_MODULE.name,
-  CORE_MODULE.name,
-  API_MODULE.name,
-  AUTH_MODULE.name,
-  HOME_MODULE.name,
-  SOCIAL_MODULE.name,
-]);
-
-APP_MODULE.value('$routerRootComponent', 'ddl');
-APP_MODULE.component('ddl', new AppComponent());
+@NgModule({
+  declarations: [
+    AppComponent, MenuComponent
+  ],
+  imports: [
+    BrowserModule,
+    routing,
+    CoreModule,
+    LoginModule,
+    HomeModule,
+    CircleModule,
+    ApiModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
