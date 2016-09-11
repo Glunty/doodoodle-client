@@ -1,5 +1,5 @@
 import {State} from '../../shared/state/state';
-import {UserInfo} from './user-info.model';
+import {UserInfo} from './user-info';
 import {IUser} from '../../api/social/user.i';
 
 export class UserState extends State<UserInfo> {

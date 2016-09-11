@@ -10,7 +10,7 @@ export class LoginGuard implements CanActivate {
   }
 
   public canActivate() {
-    if(!this.userService.isLoggedIn) {
+    if(!this.userService.logInFromStorage()) {
       return true;
     } else {
       this.router.navigate(route.home.value);

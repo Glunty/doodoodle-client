@@ -1,7 +1,6 @@
 import {HttpModule} from '@angular/http';
 import {NgModule, Optional, SkipSelf} from '@angular/core';
 import {ApiService} from './api.service';
-import {ExtendedHttp} from '../shared/http/extended-http.service';
 import {ApiUrl} from './api.url';
 
 @NgModule({

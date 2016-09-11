@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {UserState} from './core/auth/user.state';
-import {UserInfo} from './core/auth/user-info.model';
+import {UserInfo} from './core/auth/user-info';
 
 @Component({
   selector: 'ddl-root',

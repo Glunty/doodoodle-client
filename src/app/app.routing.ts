@@ -8,6 +8,11 @@ export const afterLogOutPath = 'after_log_out';
 
 export const routing: ModuleWithProviders = RouterModule.forRoot([
   {
+    path: '',
+    redirectTo: home.home.value.join('.'),
+    pathMatch: 'full'
+  },
+  {
     path: afterLogInPath,
     redirectTo: home.home.value.join('.'),
     pathMatch: 'full'

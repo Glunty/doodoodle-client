@@ -4,12 +4,14 @@ import {ApiService} from '../../api/api.service';
 import {IUser} from '../../api/social/user.i';
 import {Observable} from 'rxjs';
 
+const tokenStorageId = 'ddl.auth.token';
+const userStorageId = 'ddl.auth.user';
+
 @Injectable()
 export class UserService {
 
   public constructor(private api: ApiService,
                      private state: UserState) {
-
   }
 
   public logIn = (email: string, password: string) => {
@@ -18,11 +20,21 @@ export class UserService {
       .flatMap(this.getUser);
   };
 
+  public logInFromStorage() {
+    if (!this.isLoggedIn) {
+      this.state.token = localStorage.getItem(tokenStorageId);
+      this.state.user = JSON.parse(localStorage.getItem(userStorageId));
+    }
+    return this.isLoggedIn;
+  }
+
   public logOut = () => {
     return Observable.of(true)
       .map(() => {
+        localStorage.removeItem(userStorageId);
         this.state.user = null;
         this.api.authorization = null;
+        localStorage.removeItem(tokenStorageId);
         this.state.token = null;
       });
   };
@@ -34,6 +46,7 @@ export class UserService {
   public getToken = ({email, password}) => {
     return this.api.auth(email, password).map((response) => {
       this.state.token = response.token;
+      localStorage.setItem(tokenStorageId, response.token);
       this.api.authorization = response.token;
       return response;
     });
@@ -42,6 +55,7 @@ export class UserService {
   public getUser = () => {
     return this.api.getMe().map((response) => {
       this.state.user = response;
+      localStorage.setItem(userStorageId, JSON.stringify(response));
     });
   };
 
