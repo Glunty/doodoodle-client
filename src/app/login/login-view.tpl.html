@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row flex-items-xs-center">
-    <h1 class="text-center text-brand">Doodoodle</h1>
+    <h1 class="text-center text-brand m-t-3 m-b-2">Doodoodle</h1>
   </div>
   <div class="row flex-items-xs-center">
     <div class="col-md-3 col-lg-4">
@@ -9,7 +9,8 @@
           <div>
             <div class="form-group">
               <label class="sr-only" for="email">Email</label>
-              <input type="text" class="form-control input-underline input-lg" id="email" name="email" placeholder="Email"
+              <input type="text" class="form-control input-underline input-lg" id="email" name="email"
+                     placeholder="Email"
                      required [(ngModel)]="email" ngControl="email">
             </div>
             <div class="form-group">
@@ -19,7 +20,8 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-lg btn-block btn-primary" [disabled]="!login.form.valid">Se connecter</button>
+        <button type="submit" class="btn btn-lg btn-block btn-primary" [disabled]="!login.form.valid">Se connecter
+        </button>
         <a class="btn btn-link btn-block" [routerLink]="route.register">S'inscrire</a>
       </form>
     </div>
