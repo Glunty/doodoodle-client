@@ -15,9 +15,14 @@ export class UserService {
   }
 
   public logIn = (email: string, password: string) => {
-    return Observable.of({email, password})
-      .flatMap(this.getToken)
-      .flatMap(this.getUser);
+    return this.api.auth(email, password).map((response) => {
+      this.state.token = response.token;
+      localStorage.setItem(tokenStorageId, response.token);
+      this.api.authorization = response.token;
+      this.state.user = response;
+      localStorage.setItem(userStorageId, JSON.stringify(response));
+      return response;
+    });
   };
 
   public logInFromStorage() {
@@ -42,22 +47,6 @@ export class UserService {
 
   public signIn = (user: IUser) => {
     return this.api.addUser(user).map(() => this.logIn(user.email, user.password));
-  };
-
-  public getToken = ({email, password}) => {
-    return this.api.auth(email, password).map((response) => {
-      this.state.token = response.token;
-      localStorage.setItem(tokenStorageId, response.token);
-      this.api.authorization = response.token;
-      return response;
-    });
-  };
-
-  public getUser = () => {
-    return this.api.getMe().map((response) => {
-      this.state.user = response;
-      localStorage.setItem(userStorageId, JSON.stringify(response));
-    });
   };
 
   public isUser = (email: string) => this.state.user.email == email;

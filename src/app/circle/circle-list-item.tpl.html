@@ -17,7 +17,7 @@
     </ul>
     <div>
       <table class="table table-striped" *ngIf="isFriends">
-        <tr [hidden]="circle.members.length">
+        <tr [hidden]="members.length">
           <td>Aucun ami dans ce cercle</td>
         </tr>
         <tr *ngFor="let member of members">

@@ -58,10 +58,10 @@ export class ApiService {
   }
 
   public addUserToCircle(id: string, user: IUser) {
-    return this.http.post(this.url.groupAddUser(id), user);
+    return this.http.post(this.url.groupUsers(id), user);
   }
 
-  public removeUserToCircle(id: string, user: IUser) {
-    return this.http.post(this.url.groupRemoveUser(id), user);
+  public removeUserToCircle(id: string, username: string) {
+    return this.http.delete(this.url.groupUser(id, username));
   }
 }

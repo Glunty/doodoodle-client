@@ -13,8 +13,8 @@ export class ApiUrl {
 
   public groups = () => path(this.base, 'group');
   public group = (id: string) => path(this.groups(), id);
-  public groupAddUser = (id: string) => path(this.group(id), 'addUser');
-  public groupRemoveUser = (id: string) => path(this.group(id), 'removeUser');
+  public groupUsers = (id: string) => path(this.group(id), 'user');
+  public groupUser = (groupId: string, userId: string) => path(this.groupUsers(groupId), userId);
 
 }
 
