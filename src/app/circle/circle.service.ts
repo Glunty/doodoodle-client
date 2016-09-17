@@ -28,6 +28,6 @@ export class CircleService {
   };
 
   public getMembers = (circle: ICircle) => {
-    return circle.members.filter((member) => this.userService.isUser(member.email));
+    return circle.members.filter((member) => !this.userService.isUser(member.username));
   }
 }
