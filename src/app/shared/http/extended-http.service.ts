@@ -48,5 +48,9 @@ export class ExtendedHttp {
 }
 
 function handleResponse(res: Response) {
-  return res.json()
+  if(res.status !== 201) {
+    return res.json()
+  } else {
+    return true;
+  }
 }

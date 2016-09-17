@@ -1,7 +1,7 @@
 import {treePath, tree} from '../shared/util/tree';
 
 export const path = {
-  circle: treePath('circle',{
+  circle: treePath('circles',{
     list: treePath('list')
   })
 };

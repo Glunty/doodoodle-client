@@ -3,20 +3,20 @@
 // --------------------------------------------------
 
 // Base class
-.panel {
+.card {
   border: none;
   border-radius: 0;
   @include box-shadow(0 5px 8px rgba(0, 0, 0, .1));
 }
 
-.panel-flat {
+.card-flat {
   @include box-shadow(none);
 }
 
-.panel-heading {
-  font-family: $panel-heading-font-family;
+.card-header {
+  font-family: $card-header-font-family;
 }
 
-.panel-ternary {
+.card-ternary {
   background-color: $brand-ternary;
 }

@@ -9,7 +9,8 @@
 // Alternate navbars
 // --------------------------------------------------
 
-// Default navbar
-.navbar-default {
-
+.navbar-light {
+  .navbar-brand {
+    color: $navbar-light-brand-color;
+  }
 }

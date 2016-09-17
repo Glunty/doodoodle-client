@@ -1,16 +1,10 @@
-<nav class="navbar navbar-default navbar-static-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href>Doodoodle</a>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li routerLinkActive="active"><a [routerLink]="route.home"><i class="fa fa-fw fa-home"></i>Accueil</a></li>
-        <li routerLinkActive="active"><a [routerLink]="route.circle"><i class="fa fa-fw fa-users"></i>Cercles</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href (click)="logOut(); false">Se déconnecter</a></li>
-      </ul>
-    </div>
-  </div>
+<nav class="navbar navbar-light navbar-full">
+  <a class="navbar-brand" href>Doodoodle</a>
+  <ul class="nav navbar-nav">
+    <li class="nav-item"><a class="nav-link" routerLinkActive="active" [routerLink]="route.home"><i class="fa fa-fw fa-home"></i>Accueil</a></li>
+    <li class="nav-item"><a class="nav-link" routerLinkActive="active" [routerLink]="route.circle"><i class="fa fa-fw fa-users"></i>Cercles</a></li>
+  </ul>
+  <ul class="nav navbar-nav pull-xs-right">
+    <li class="nav-item"><a class="nav-link" href (click)="logOut(); false">Se déconnecter</a></li>
+  </ul>
 </nav>

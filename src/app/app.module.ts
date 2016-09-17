@@ -9,6 +9,7 @@ import {HomeModule} from './home/home.module';
 import {routing} from './app.routing';
 import {CircleModule} from './circle/circle.module';
 import {MenuComponent} from './menu/menu.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {MenuComponent} from './menu/menu.component';
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     routing,
     CoreModule,
     LoginModule,

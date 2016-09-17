@@ -14,6 +14,6 @@
 h1, .h1,
 h2, .h2,
 h3, .h3 {
-  margin-top: ($line-height-computed / 2);
-  margin-bottom: $line-height-computed;
+  margin-top: ($headings-margin-bottom / 2);
+  margin-bottom: $headings-margin-bottom;
 }

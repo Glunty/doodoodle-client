@@ -5,8 +5,7 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~bootstrap/scss/bootstrap-flex";
 $fa-font-path: "~font-awesome/fonts/";
 @import "~font-awesome/scss/font-awesome";
 
@@ -17,6 +16,6 @@ $fa-font-path: "~font-awesome/fonts/";
 @import "assets/styles/table";
 @import "assets/styles/navbar";
 @import "assets/styles/type";
-@import "assets/styles/panels";
+@import "assets/styles/card";
 @import "assets/styles/buttons";
 @import "assets/styles/forms";

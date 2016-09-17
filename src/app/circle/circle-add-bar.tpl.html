@@ -1,0 +1,14 @@
+<div class="row card card-flat card-ternary">
+  <div class="col-xs-12 card-block">
+    <form (ngSubmit)="addCircle()" #circle="ngForm" class="form-inline">
+      <div class="form-group">
+        <label for="name" class="sr-only">Nom du cercle</label>
+        <input type="text" class="form-control input-borderless" id="name" placeholder="Entrez le nom du cercle..."
+               required name="name" [(ngModel)]="circleName" ngControl="name">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!circle.form.valid">
+        <i class="fa fa-fw fa-plus"></i>Ajouter
+      </button>
+    </form>
+  </div>
+</div>

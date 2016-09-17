@@ -1,10 +1,12 @@
-<h1 class="text-center text-brand">Doodoodle</h1>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-      <form (ngSubmit)="signIn()" class="panel panel-default" #register="ngForm">
-        <div class="panel-heading">Inscription</div>
-        <div class="panel-body">
+  <div class="row flex-items-xs-center">
+    <h1 class="text-center text-brand">Doodoodle</h1>
+  </div>
+  <div class="row flex-items-xs-center">
+    <div class="col-md-3 col-lg-4">
+      <form (ngSubmit)="signIn()" class="card" #register="ngForm">
+        <div class="card-header">Inscription</div>
+        <div class="card-block">
           <div class="form-group">
             <label class="sr-only" for="email">Email*</label>
             <input type="email" class="form-control input-lg" id="email" name="email" placeholder="Email" required

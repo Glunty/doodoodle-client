@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  template: require('./circle-root.tpl.html')
+  template: `<router-outlet></router-outlet>`
 })
 export class CircleRootComponent {
 

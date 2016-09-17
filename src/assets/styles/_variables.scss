@@ -5,26 +5,21 @@ $brand-font-family: 'Pacifico', cursive;
 
 $body-bg: $brand-secondary;
 
-$headings-font-family: 'Montserrat', sans-serif;
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$headings-font-family: inherit;
 
-$powered-by-height: 100px;
-$padding-base-vertical: 6px;
+$powered-by-height: 10rem;
 
-$btn-border-radius-base: 0;
-$btn-border-radius-large: 0;
-$btn-border-radius-small: 0;
+$btn-border-radius: 0;
+$btn-border-radius-lg: 0;
+$btn-border-radius-sm: 0;
 $btn-primary-border: $brand-primary;
 
 $input-border-radius-large: 0;
 
-$panel-body-padding: $padding-base-vertical*2 !default;
-$panel-heading-font-family: $headings-font-family;
-$panel-heading-padding: $padding-base-vertical*2 15px !default;
-$panel-default-border: none;
+$card-header-font-family: $headings-font-family;
 
-$navbar-default-bg: transparent;
-$navbar-default-border: transparent;
-$navbar-default-brand-color: #000;
-$navbar-default-link-color: #000;
-$navbar-default-link-hover-color: $brand-primary;
-$navbar-default-link-active-color: $brand-primary;
+$navbar-light-brand-color: #000;
+$navbar-light-color: #000;
+$navbar-light-hover-color: $brand-primary;
+$navbar-light-active-color: $brand-primary;

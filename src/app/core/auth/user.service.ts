@@ -24,6 +24,7 @@ export class UserService {
     if (!this.isLoggedIn) {
       this.state.token = localStorage.getItem(tokenStorageId);
       this.state.user = JSON.parse(localStorage.getItem(userStorageId));
+      this.api.authorization = this.state.token;
     }
     return this.isLoggedIn;
   }
@@ -58,6 +59,8 @@ export class UserService {
       localStorage.setItem(userStorageId, JSON.stringify(response));
     });
   };
+
+  public isUser = (email: string) => this.state.user.email == email;
 
   public get isLoggedIn() {
     return !!this.state.token;
