@@ -1,3 +1,8 @@
+$enable-rounded:            false;
+$enable-shadows:            true;
+$enable-gradients:          true;
+$enable-transitions:        true;
+
 $brand-primary: #FF6363;
 $brand-secondary: #FFE481;
 $brand-ternary: #FFDA54;
@@ -10,14 +15,12 @@ $headings-font-family: inherit;
 
 $powered-by-height: 10rem;
 
-$btn-border-radius: 0;
-$btn-border-radius-lg: 0;
-$btn-border-radius-sm: 0;
 $btn-primary-border: $brand-primary;
 
 $input-border-radius-large: 0;
 
 $card-header-font-family: $headings-font-family;
+$card-box-shadow: 0 .5rem .8rem rgba(0, 0, 0, .1);
 
 $navbar-light-brand-color: #000;
 $navbar-light-color: #000;
