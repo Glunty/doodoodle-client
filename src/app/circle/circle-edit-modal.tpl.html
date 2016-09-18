@@ -1,12 +1,13 @@
 <template>
   <form #newFriend="ngForm" class="modal-content" (ngSubmit)="addUser()">
     <div class="modal-header">
-      Ajout d'un ami à <strong>{{circle.name}}</strong>
+      <strong>{{circle.name}}</strong>
     </div>
     <div class="modal-body">
       <div class="form-group">
         <label class="sr-only" for="email">Email</label>
-        <input type="email" name="name" class="form-control" id="email" placeholder="Entrez l'email de votre ami..."
+        <input type="email" name="name" class="form-control" id="email"
+               placeholder="Entrez l'email du membre à ajouter..."
                [(ngModel)]="user.username" required ngControl="email" focus>
       </div>
       <div class="text-xs-right">

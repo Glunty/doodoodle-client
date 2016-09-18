@@ -1,8 +1,8 @@
-<modal-confirm #deleteConfim content="Etes-vous sûr de vouloir supprimer {{circle.name}} ?"></modal-confirm>
 <div class="card">
   <div class="card-header">
     <strong>{{circle.name}}</strong>
-    <a href class="pull-right" [modalOpen]="deleteConfim" (onClose)="remove()"><i class="fa fa-trash"></i></a>
+    <modal-confirm #deleteCircle content="Etes-vous sûr de vouloir supprimer {{circle.name}} ?"></modal-confirm>
+    <a href class="pull-right" [modalOpen]="deleteCircle" (onClose)="remove()"><i class="fa fa-trash"></i></a>
   </div>
   <div class="card-block">
     <div>
@@ -14,7 +14,10 @@
         <tr *ngFor="let member of members">
           <td>{{member.firstName}} {{member.lastName}}</td>
           <td class="text-xs-right">
-            <button class="btn btn-link btn-sm" (click)="removeUser(member)"><i class="fa fa-times"></i></button>
+            <modal-confirm #deleteUser content="Etes-vous sûr de vouloir supprimer {{member.firstName}} ?"></modal-confirm>
+            <button class="btn btn-link btn-sm" [modalOpen]="deleteUser" (onClose)="removeUser(member)">
+              <i class="fa fa-times"></i>
+            </button>
           </td>
         </tr>
         </tbody>
