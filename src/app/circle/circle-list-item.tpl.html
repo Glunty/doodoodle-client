@@ -1,6 +1,3 @@
-<template #editModal let-c="close" let-d="dismiss">
-  <ddl-circle-edit-modal [circle]="circle" [close]="c" [dismiss]="d"></ddl-circle-edit-modal>
-</template>
 <div class="card">
   <div class="card-header with-nav">
     <span class="card-text">{{circle.name}}</span>
@@ -43,7 +40,8 @@
         </tr>
         </tbody>
       </table>
-      <button class="btn btn-secondary" (click)="open(editModal)"><i class="fa fa-fw fa-user-plus"></i>Ajouter
+      <ddl-circle-edit-modal #circleEdit [circle]="circle"></ddl-circle-edit-modal>
+      <button class="btn btn-secondary" [openModal]="circleEdit"><i class="fa fa-fw fa-user-plus"></i>Ajouter
       </button>
       <button class="btn btn-secondary"><i class="fa fa-fw fa-child"></i>Ajouter</button>
       <button class="btn btn-primary pull-right"><i class="fa fa-fw fa-calendar-plus-o"></i>Proposer</button>

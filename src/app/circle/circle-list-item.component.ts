@@ -1,6 +1,6 @@
 import {Component, Output} from '@angular/core/src/metadata/directives';
 import {ICircle} from '../api/social/circle.i';
-import {Input, EventEmitter, TemplateRef} from '@angular/core';
+import {Input, EventEmitter, TemplateRef, OnInit} from '@angular/core';
 import {IUser} from '../api/social/user.i';
 import {CircleService} from './circle.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
@@ -9,7 +9,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
   selector: 'ddl-circle-item',
   template: require('./circle-list-item.tpl.html')
 })
-export class CircleListItemComponent {
+export class CircleListItemComponent implements OnInit {
 
   @Input() public circle: ICircle;
   @Output() public onChange = new EventEmitter<boolean>();

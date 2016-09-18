@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../core/auth/user.service';
 import {Router} from '@angular/router';
 import {afterLogOutPath} from '../app.routing';
@@ -9,7 +9,7 @@ import {route as circleRoute} from '../circle/circle.path';
   selector: 'ddl-menu',
   template: require('./menu.tpl.html')
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit {
 
   public route = {
     home: homeRoute.home.value,

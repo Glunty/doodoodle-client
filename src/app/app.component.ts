@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserState} from './core/auth/user.state';
 import {UserInfo} from './core/auth/user-info';
 
@@ -6,7 +6,7 @@ import {UserInfo} from './core/auth/user-info';
   selector: 'ddl-root',
   template: require('./app.component.html')
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   public isLoggedIn;
 
