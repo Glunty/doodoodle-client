@@ -1,25 +1,15 @@
 <div class="card">
   <div class="card-header with-nav">
-    <span class="card-text">{{circle.name}}</span>
+    <strong class="card-text">{{circle.name}}</strong>
     <a href class="card-text pull-right" (click)="remove(); false"><i class="fa fa-trash"></i></a>
-    <ul class="nav nav-pills">
-      <li class="nav-item">
-        <a href class="nav-link" [ngClass]="{active: isFriends}" (click)="showFriends(); false">Amis</a>
-      </li>
-      <li class="nav-item">
-        <a href class="nav-link" [ngClass]="{active: isActivities}" (click)="showActivities(); false">Activités</a>
-      </li>
-    </ul>
   </div>
   <div class="card-block">
     <div>
-      <table class="table" *ngIf="isFriends">
-        <tbody *ngIf="!members.length">
-        <tr>
+      <table class="table">
+        <tbody>
+        <tr *ngIf="!members.length">
           <td>Aucun ami dans ce cercle</td>
         </tr>
-        </tbody>
-        <tbody *ngIf="members.length">
         <tr *ngFor="let member of members">
           <td>{{member.email}}</td>
           <td class="text-xs-right">
@@ -28,23 +18,10 @@
         </tr>
         </tbody>
       </table>
-      <table class="table" *ngIf="isActivities">
-        <tbody *ngIf="!circle.activities">
-        <tr>
-          <td>Aucune activité dans ce cercle</td>
-        </tr>
-        </tbody>
-        <tbody *ngIf="circle.activities">
-        <tr *ngFor="let activity of circles.activities">
-          <td>{{activity}}</td>
-        </tr>
-        </tbody>
-      </table>
       <ddl-circle-edit-modal #circleEdit [circle]="circle"></ddl-circle-edit-modal>
-      <button class="btn btn-secondary" [openModal]="circleEdit"><i class="fa fa-fw fa-user-plus"></i>Ajouter
+      <button class="btn btn-secondary" [modalOpen]="circleEdit"><i class="fa fa-fw fa-user-plus"></i>Ajouter
       </button>
-      <button class="btn btn-secondary"><i class="fa fa-fw fa-child"></i>Ajouter</button>
-      <button class="btn btn-primary pull-right"><i class="fa fa-fw fa-calendar-plus-o"></i>Proposer</button>
+      <button class="btn btn-primary pull-right"><i class="fa fa-fw fa-calendar-plus-o"></i></button>
     </div>
   </div>
 </div>

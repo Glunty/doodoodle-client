@@ -4,11 +4,11 @@ import {HostListener, Input, Output} from '@angular/core/src/metadata/directives
 import {IModalComponent} from './modal.component.i';
 
 @Directive({
-  selector: '[openModal]'
+  selector: '[modalOpen]'
 })
-export class OpenModalDirective {
+export class ModalOpenDirective {
 
-  @Input('openModal') public modal: IModalComponent;
+  @Input('modalOpen') public modal: IModalComponent;
   @Output() public onClose = new EventEmitter<any>();
   @Output() public onDismiss = new EventEmitter<any>();
 

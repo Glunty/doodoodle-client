@@ -1,16 +1,19 @@
 <template>
-  <form #circle="ngForm" class="modal-content" (ngSubmit)="addUser()">
+  <form #newFriend="ngForm" class="modal-content" (ngSubmit)="addUser()">
+    <div class="modal-header">
+      Ajout d'un ami à <strong>{{circle.name}}</strong>
+    </div>
     <div class="modal-body">
       <div class="form-group">
         <label class="sr-only" for="email">Email</label>
-        <input type="email" name="name" class="form-control" id="email" placeholder="Entrez un email..."
-               [(ngModel)]="user.username" required ngControl="email">
+        <input type="email" name="name" class="form-control" id="email" placeholder="Entrez l'email de votre ami..."
+               [(ngModel)]="user.username" required ngControl="email" focus>
       </div>
-    </div>
-    <div class="modal-footer">
-      <button type="submit" class="btn btn-primary" [disabled]="!circle.form.valid">Ajouter
-      </button>
-      <button type="button" class="btn btn-default" (click)="dismiss()">Annuler</button>
+      <div class="text-xs-right">
+        <button type="submit" class="btn btn-primary" [disabled]="!newFriend.form.valid">Ajouter
+        </button>
+        <button type="button" class="btn btn-default" (click)="cancel()">Annuler</button>
+      </div>
     </div>
   </form>
 </template>

@@ -9,15 +9,25 @@ import {CircleService} from './circle.service';
 export class CircleAddBarComponent {
 
   @Output() public onAdd = new EventEmitter<boolean>();
+  @Output() public onChange = new EventEmitter<string>();
 
-  public circleName: string;
+  private _circleName: string;
 
   public constructor(private circleService: CircleService) {}
 
   public addCircle() {
-    this.circleService.addCircle(this.circleName).subscribe(() => {
-      this.circleName = null;
+    this.circleService.addCircle(this._circleName).subscribe(() => {
+      this._circleName = null;
       this.onAdd.emit(true);
     });
+  }
+
+  public get circleName() {
+    return this._circleName;
+  }
+
+  public set circleName(name: string) {
+    this._circleName = name;
+    this.onChange.emit(name);
   }
 }

@@ -7,10 +7,19 @@ import {CircleService} from './circle.service';
 })
 export class CircleListComponent implements OnInit {
   public circles: ICircle[];
+  private allCircles: ICircle[];
 
-  public constructor(private circleService: CircleService) {}
+  public constructor(private circleService: CircleService) {
+  }
 
   public ngOnInit() {
-    this.circleService.getCircles().subscribe((circles) => this.circles = circles);
+    this.circleService.getCircles().subscribe((circles) => {
+      this.allCircles = circles;
+      this.circles = circles;
+    });
+  }
+
+  public filter(name: string) {
+    this.circles = this.allCircles.filter((circle) => circle.name.indexOf(name) !== -1)
   }
 }

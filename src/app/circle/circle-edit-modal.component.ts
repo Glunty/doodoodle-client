@@ -13,7 +13,7 @@ import {IModalComponent} from '../shared/modal/modal.component.i';
 export class CircleEditModalDirective implements IModalComponent {
 
   @Input() public circle: ICircle;
-  @ViewChild(TemplateRef)  public ref: TemplateRef<any>;
+  @ViewChild(TemplateRef) public ref: TemplateRef<any>;
   public close: (any?) => void;
   public dismiss: (any?) => void;
 
@@ -23,6 +23,18 @@ export class CircleEditModalDirective implements IModalComponent {
   }
 
   public addUser() {
-    this.circleService.addUser(this.circle.id, this.user).subscribe(() => this.close());
+    this.circleService.addUser(this.circle.id, this.user).subscribe(() => {
+      this.reset();
+      this.close();
+    });
+  }
+
+  public cancel() {
+    this.reset();
+    this.dismiss();
+  }
+
+  private reset() {
+    this.user = {};
   }
 }

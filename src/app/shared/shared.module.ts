@@ -1,17 +1,18 @@
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {NgModule} from '@angular/core';
-import {OpenModalDirective} from './modal/open-modal.directive';
+import {ModalOpenDirective} from './modal/modal-open.directive';
+import {FocusDirective} from './form/focus';
 
 @NgModule({
   declarations: [
-    OpenModalDirective
+    ModalOpenDirective, FocusDirective
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    CommonModule, FormsModule, OpenModalDirective
+    CommonModule, FormsModule, ModalOpenDirective, FocusDirective
   ]
 })
 export class SharedModule {

@@ -14,8 +14,6 @@ export class CircleListItemComponent implements OnInit {
   @Input() public circle: ICircle;
   @Output() public onChange = new EventEmitter<boolean>();
   public members: IUser[];
-  public isFriends: boolean = true;
-  public isActivities: boolean = false;
 
   public constructor(private circleService: CircleService,
                      private modalService: NgbModal) {
@@ -31,16 +29,6 @@ export class CircleListItemComponent implements OnInit {
 
   public removeUser(user: IUser) {
     /*this._manager.removeUser(user);*/
-  }
-
-  public showFriends() {
-    this.isFriends = true;
-    this.isActivities = false;
-  }
-
-  public showActivities() {
-    this.isFriends = false;
-    this.isActivities = true;
   }
 
   public open(content: TemplateRef<any>) {

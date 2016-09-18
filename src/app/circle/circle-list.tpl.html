@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <ddl-circle-add-bar (onAdd)="ngOnInit()"></ddl-circle-add-bar>
+  <ddl-circle-add-bar (onAdd)="ngOnInit()" (onChange)="filter($event)"></ddl-circle-add-bar>
   <div class="row">
     <div class="col-md-4" *ngFor="let circle of circles">
       <ddl-circle-item [circle]="circle" (onChange)="ngOnInit()"></ddl-circle-item>
