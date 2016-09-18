@@ -27,6 +27,10 @@ export class CircleService {
     return this.api.addUserToCircle(circleId, user);
   };
 
+  public removeUser = (circleId: string, username: string) => {
+    return this.api.removeUserToCircle(circleId, username);
+  };
+
   public getMembers = (circle: ICircle) => {
     return circle.members.filter((member) => !this.userService.isUser(member.username));
   }

@@ -9,18 +9,13 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
   selector: 'ddl-circle-item',
   template: require('./circle-list-item.tpl.html')
 })
-export class CircleListItemComponent implements OnInit {
-
-  @Input() public circle: ICircle;
+export class CircleListItemComponent {
   @Output() public onChange = new EventEmitter<boolean>();
   public members: IUser[];
+  private _circle: ICircle;
 
   public constructor(private circleService: CircleService,
                      private modalService: NgbModal) {
-  }
-
-  public ngOnInit() {
-    this.members = this.circleService.getMembers(this.circle);
   }
 
   public remove() {
@@ -28,10 +23,20 @@ export class CircleListItemComponent implements OnInit {
   }
 
   public removeUser(user: IUser) {
-    /*this._manager.removeUser(user);*/
+    this.circleService.removeUser(this.circle.id, user.username).subscribe((circle) => this.circle = circle);
   }
 
   public open(content: TemplateRef<any>) {
-    this.modalService.open(content).result.catch(() => true)
+    this.modalService.open(content).result.catch(() => true);
+  }
+
+  public get circle() {
+    return this._circle;
+  }
+
+  @Input()
+  public set circle(circle: ICircle) {
+    this._circle = circle;
+    this.members = this.circleService.getMembers(circle);
   }
 }

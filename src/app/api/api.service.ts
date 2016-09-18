@@ -62,6 +62,6 @@ export class ApiService {
   }
 
   public removeUserToCircle(id: string, username: string) {
-    return this.http.delete(this.url.groupUser(id, username));
+    return this.http.delete<ICircle>(this.url.groupUser(id, username));
   }
 }

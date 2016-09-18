@@ -1,8 +1,20 @@
 <div class="container-fluid">
   <ddl-circle-add-bar (onAdd)="ngOnInit()" (onChange)="filter($event)"></ddl-circle-add-bar>
   <div class="row">
-    <div class="col-md-4" *ngFor="let circle of circles">
-      <ddl-circle-item [circle]="circle" (onChange)="ngOnInit()"></ddl-circle-item>
+    <div class="col-md-4">
+      <div *ngFor="let circle of circles; let i=index">
+        <ddl-circle-item *ngIf="(i % 3) === 0" [circle]="circle" (onChange)="ngOnInit()"></ddl-circle-item>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div *ngFor="let circle of circles; let i=index">
+        <ddl-circle-item *ngIf="(i % 3) === 1" [circle]="circle" (onChange)="ngOnInit()"></ddl-circle-item>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div *ngFor="let circle of circles; let i=index">
+        <ddl-circle-item *ngIf="(i % 3) === 2" [circle]="circle" (onChange)="ngOnInit()"></ddl-circle-item>
+      </div>
     </div>
   </div>
 </div>

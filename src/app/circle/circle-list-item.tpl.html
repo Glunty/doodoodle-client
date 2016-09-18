@@ -19,7 +19,7 @@
         </tbody>
       </table>
       <ddl-circle-edit-modal #circleEdit [circle]="circle"></ddl-circle-edit-modal>
-      <button class="btn btn-secondary" [modalOpen]="circleEdit"><i class="fa fa-fw fa-user-plus"></i>Ajouter
+      <button class="btn btn-secondary" [modalOpen]="circleEdit" (onClose)="circle = $event"><i class="fa fa-fw fa-user-plus"></i>Ajouter
       </button>
       <button class="btn btn-primary pull-right"><i class="fa fa-fw fa-calendar-plus-o"></i></button>
     </div>

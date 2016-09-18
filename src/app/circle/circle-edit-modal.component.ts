@@ -23,9 +23,9 @@ export class CircleEditModalDirective implements IModalComponent {
   }
 
   public addUser() {
-    this.circleService.addUser(this.circle.id, this.user).subscribe(() => {
+    this.circleService.addUser(this.circle.id, this.user).subscribe((circle) => {
       this.reset();
-      this.close();
+      this.close(circle);
     });
   }
 
