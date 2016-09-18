@@ -14,8 +14,8 @@ export class UserService {
                      private state: UserState) {
   }
 
-  public logIn = (email: string, password: string) => {
-    return this.api.auth(email, password).map((response) => {
+  public logIn = (username: string, password: string) => {
+    return this.api.auth(username, password).map((response) => {
       this.state.token = response.token;
       localStorage.setItem(tokenStorageId, response.token);
       this.api.authorization = response.token;
@@ -46,7 +46,7 @@ export class UserService {
   };
 
   public signIn = (user: IUser) => {
-    return this.api.addUser(user).map(() => this.logIn(user.email, user.password));
+    return this.api.addUser(user).flatMap(() => this.logIn(user.email, user.password));
   };
 
   public isUser = (username: string) => this.state.user.username === username;

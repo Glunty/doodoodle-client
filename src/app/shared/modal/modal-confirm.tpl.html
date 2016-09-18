@@ -1,7 +1,5 @@
 <template>
-    <div class="modal-header">
-      {{title}}
-    </div>
+    <div class="modal-header" *ngIf="title">{{title}}</div>
     <div class="modal-body">
       <div>{{content}}</div>
       <div class="text-xs-right">

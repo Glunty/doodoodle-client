@@ -8,7 +8,7 @@ import {route} from './login.path';
   template: require('./login-view.tpl.html')
 })
 export class LoginViewComponent {
-  public email: string;
+  public username: string;
   public password: string;
 
 
@@ -20,7 +20,7 @@ export class LoginViewComponent {
                      private router: Router) {}
 
   public logIn = () => {
-    this.userService.logIn(this.email, this.password).subscribe(() => {
+    this.userService.logIn(this.username, this.password).subscribe(() => {
       this.router.navigate([afterLogInPath]);
     });
   };

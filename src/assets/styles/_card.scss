@@ -15,19 +15,6 @@
 
 .card-header {
   font-family: $card-header-font-family;
-
-  &.with-nav {
-    padding: 0;
-
-    .card-text {
-      display: inline-block;
-      padding: $nav-link-padding;
-    }
-
-    .nav {
-      float: right;
-    }
-  }
 }
 
 .card-ternary {

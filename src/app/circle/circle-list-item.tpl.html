@@ -1,9 +1,8 @@
-<modal-confirm #deleteConfim title="Suppression de {{circle.name}}"
-               content="Etes-vous sûr de vouloir supprimer {{circle.name}} ?"></modal-confirm>
+<modal-confirm #deleteConfim content="Etes-vous sûr de vouloir supprimer {{circle.name}} ?"></modal-confirm>
 <div class="card">
-  <div class="card-header with-nav">
-    <strong class="card-text">{{circle.name}}</strong>
-    <a href class="card-text pull-right" [modalOpen]="deleteConfim" (onClose)="remove()"><i class="fa fa-trash"></i></a>
+  <div class="card-header">
+    <strong>{{circle.name}}</strong>
+    <a href class="pull-right" [modalOpen]="deleteConfim" (onClose)="remove()"><i class="fa fa-trash"></i></a>
   </div>
   <div class="card-block">
     <div>
@@ -13,7 +12,7 @@
           <td>Aucun ami dans ce cercle</td>
         </tr>
         <tr *ngFor="let member of members">
-          <td>{{member.email}}</td>
+          <td>{{member.firstName}} {{member.lastName}}</td>
           <td class="text-xs-right">
             <button class="btn btn-link btn-sm" (click)="removeUser(member)"><i class="fa fa-times"></i></button>
           </td>
