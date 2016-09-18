@@ -24,5 +24,6 @@ export class ModalOpenDirective {
       (close) => this.onClose.emit(close),
       (dismiss) => this.onDismiss.emit(dismiss)
     );
+    return false;
   }
 }

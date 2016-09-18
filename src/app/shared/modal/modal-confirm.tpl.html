@@ -1,0 +1,12 @@
+<template>
+    <div class="modal-header">
+      {{title}}
+    </div>
+    <div class="modal-body">
+      <div>{{content}}</div>
+      <div class="text-xs-right">
+        <button type="button" class="btn btn-primary"  (click)="close()">Ok</button>
+        <button type="button" class="btn btn-default" (click)="dismiss()">Annuler</button>
+      </div>
+    </div>
+</template>
