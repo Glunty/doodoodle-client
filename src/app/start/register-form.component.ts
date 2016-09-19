@@ -1,15 +1,15 @@
 import {Component} from '@angular/core';
 import {IUser} from '../api/social/user.i';
 import {UserService} from '../core/auth/user.service';
-import {route} from './login.path';
+import {route} from './start.path';
 import {afterLogInPath} from '../app.routing';
 import {Router} from '@angular/router';
 
 
 @Component({
-  template: require('./register-view.tpl.html')
+  template: require('./register-form.tpl.html')
 })
-export class RegisterViewComponent {
+export class RegisterFormComponent {
   public user: IUser = {};
 
   public route = {

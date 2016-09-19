@@ -2,12 +2,12 @@ import {Component} from '@angular/core';
 import {UserService} from '../core/auth/user.service';
 import {Router} from '@angular/router';
 import {afterLogInPath} from '../app.routing';
-import {route} from './login.path';
+import {route} from './start.path';
 
 @Component({
-  template: require('./login-view.tpl.html')
+  template: require('./login-form.tpl.html')
 })
-export class LoginViewComponent {
+export class LoginFormComponent {
   public username: string;
   public password: string;
 

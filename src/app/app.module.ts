@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {LoginModule} from './login/login.module';
+import {StartModule} from './start/start.module';
 import {CoreModule} from './core/core.module';
 import {ApiModule} from './api/api.module';
 import {HomeModule} from './home/home.module';
@@ -20,7 +20,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     routing,
     CoreModule,
-    LoginModule,
+    StartModule,
     HomeModule,
     CircleModule,
     ApiModule

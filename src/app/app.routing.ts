@@ -1,7 +1,7 @@
 import {RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {route as home} from './home/home.path';
-import {route as login} from './login/login.path';
+import {route as login} from './start/start.path';
 
 export const afterLogInPath = 'after_log_in';
 export const afterLogOutPath = 'after_log_out';
